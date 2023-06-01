@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="titreheader">
+            <h1>Portfolio de Thibaut Ringeval</h1>
+        </div>
+        <div>
+            <ul class="navbar">
+                <li><a href="Tableau.html">Tableau de compétences</a>
+                    <ul>
+                        <a href="Stage.html">R&eacute;alisation en stage</a>
+                        <a href="CV.html">Curriculum Vitae</a>
+                    </ul>
+                </li>
+                <li><a href="Projet-portfolio.html">Mes Projets</a>
+                    <ul>
+                        <li><a href="Parc_informatique.html">G&eacute;rer le parc informatique</a></li>
+                        <li><a href="Incident_assistance_evo.html">R&eacute;pondre aux incidents et aux demandes d’assistance et d’&eacute;volution</a></li>
+                        <li><a href="Presence_ligne.html">D&eacute;velopper la présence en ligne de l’organisation</a></li>
+                        <li><a href="Mode_Projet.html">Travailler en mode projet</a></li>
+                        <li><a href="Dev_pro.html">Organiser son développement professionnel</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="VeilleTechnologique.html">VeilleTechnologique</a></li>
+            </ul>
+        </div>
+    </header><br>
+    <body>
+
+        <style>
+            body {
+              font-family: "Poppins", sans-serif;
+            }
+          
+            h1, h2, h3 {
+              font-size: 24px;
+              font-weight: bold;
+            }
+          
+            p {
+              font-size: 18px;
+            }
+          
+            .video-container {
+              position: relative;
+              width: 1280px;
+              height: 720px;
+              margin: 20px auto;
+              overflow: hidden;
+            }
+          
+            .video-container iframe {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
+          
+            .centered-text {
+              text-align: center;
+              text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+            }
+
+            .centered-text-2 {
+              text-align: center;
+              text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+            }
+          </style>
+          
+          <div id="veille-techno">
+            <h2 class="centered-text-2">Veille Technologique</h2>
+          
+            <ul id="categories">
+              <!-- Vos catégories ici -->
+            </ul>
+          
+            <div id="ressources">
+              <div class="category" data-category="hardware">
+                <h3 class="centered-text">Chaîne Hardware Française</h3>
+                <p class="centered-text">LeoTechmaker</p>
+                <div class="video-container">
+                  <iframe width="1280" height="720" src="https://www.youtube.com/embed/UlivCHmUgM4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <!-- Ajoutez d'autres ressources de la catégorie "Hardware" ici -->
+              </div>
+          
+              <div class="category" data-category="developpement">
+                <h3 class="centered-text">Chaîne Développement</h3>
+                <p class="centered-text">Graven Développement</p>
+                <div class="video-container">
+                  <iframe width="1280" height="720" src="https://www.youtube.com/embed/rxa53OhZLN0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <!-- Ajoutez d'autres ressources de la catégorie "Développement" ici -->
+              </div>
+          
+              <!-- Ajoutez d'autres catégories et leurs ressources ici -->
+            </div>
+          </div>
+          <h2 class="centered-text">Site que je visite fr&eacute;quemment</h2>
+          <a href="https://www.nextinpact.com/" class="centered-text">Next impact</a><br>
+          <a href="https://textranch.com/" class="centered-text">Tech Runch</a><br>
+          <a href="https://mashable.com/" class="centered-text">Mashable</a><br>
+          <br>
+          <script>
+            // Écouteur d'événement pour les clics sur les catégories
+            const categories = document.querySelectorAll('#categories li');
+            categories.forEach(category => {
+              category.addEventListener('click', () => {
+                const categoryValue = category.getAttribute('data-category');
+                showCategory(categoryValue);
+              });
+            });
+          
+            // Affiche la catégorie sélectionnée
+            function showCategory(category) {
+              const categoryElements = document.querySelectorAll('.category');
+              categoryElements.forEach(element => {
+                if (element.getAttribute('data-category') === category) {
+                  element.style.display = 'block';
+                } else {
+                  element.style.display = 'none';
+                }
+              });
+            }
+          </script>
+          
+          <ul id="langages">
+            <li class="active" data-langage="wordpress">WordPress</li>
+            <li data-langage="javascript">JavaScript</li>
+            <li data-langage="python">Python</li>
+          </ul>
+          
+          <script>
+            const langages = document.querySelectorAll('#langages li');
+            langages.forEach(langage => {
+              langage.addEventListener('click', () => {
+                const selectedLangage = langage.getAttribute('data-langage');
+                filterArticles(selectedLangage);
+              });
+            });
+          
+            function filterArticles(langage) {
+              const articles = document.querySelectorAll('.category');
+              articles.forEach(article => {
+                const articleLangage = article.getAttribute('data-langage');
+                if (langage === 'tous' || articleLangage === langage) {
+                  article.style.display = 'block';
+                } else {
+                  article.style.display = 'none';
+                }
+              });
+              updateActiveLangage(langage);
+            }
+          
+            function updateActiveLangage(langage) {
+              langages.forEach(lang => {
+                if (lang.getAttribute('data-langage') === langage) {
+                  lang.classList.add('active');
+                } else {
+                  lang.classList.remove('active');
+                }
+              });
+            }
+          </script>
+          
+          
+
+<script>
+    function getnews(){
+        //fetch('https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/top-headlines?country=fr&apikey=83644ef059ed47a9a89b4ef24857e57f,%7Bheaders: new Headers({"X-Requested-With":"test"})})
+        fetch('http://newsapi.org/v2/top-headlines?q=php&apikey=83644ef059ed47a9a89b4ef24857e57f')
+        .then(a => a.json())
+        .then(response => {
+            for(var i=0; i<response.articles.length; i++){
+                document.getElementById("output").innerHTML +=
+                "<div style='padding-top: 20px;'><img style='float:left;width:150px;'src='"+response.articles[i].urlToImage+"'><h1>"+response.articles[i].title+"</h1>"+response.articles[i].source.name+"<br>"+response.articles[i].description+" <a href='"+response.articles[i].url+"</a></div>";
+            }
+        })
+    }
+</script>
+
+
+
+</body>
+    <footer>
+        <div id="txt-footer" class="col-md-6">
+            <p>Adresse Email : thibaut.ringeval@epsi.fr</p>
+            <p>Numéro de Téléphone : 0678455959</p>
+            <a href="https://github.com/ThibautRingeval">Thibaut Ringeval</a>
+            <p>© Thibaut Ringeval 2022</p>
+        </div>
+    </footer>
+</html>
